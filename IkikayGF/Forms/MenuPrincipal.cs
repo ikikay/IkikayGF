@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IkikayGF
+//Using perso
+using MetroFramework;
+
+namespace IkikayGF.Forms
 {
-    public partial class Form1 : Form
+    public partial class MenuPrincipal : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public MenuPrincipal()
         {
             InitializeComponent();
         }

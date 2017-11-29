@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Using perso
+using IkikayGF.Forms;
+
 namespace IkikayGF
 {
     static class Program
@@ -16,7 +19,11 @@ namespace IkikayGF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            MenuPrincipal FormMain = new MenuPrincipal();
+            FormMain.Show();
+
+            Application.Run();
         }
     }
 }

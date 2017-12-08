@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IkikayGF.Classes
 {
-    class Transaction
+    public class Transaction
     {
         // ---------------------------------------------------------------------------------------- //
         // --------------------------------------- Attributs -------------------------------------- //

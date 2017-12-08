@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IkikayGF.Classes
 {
-    class Mouvement
+    public class Mouvement
     {
         // ---------------------------------------------------------------------------------------- //
         // --------------------------------------- Attributs -------------------------------------- //
@@ -54,12 +54,12 @@ namespace IkikayGF.Classes
         }
 
         // Constructeur Via BDD
-        public Mouvement(int id, string libelle, bool credit_debit, List<Transaction> lesTransactions)
+        public Mouvement(int id, string libelle, bool credit_debit)
         {
             this.id = id;
             this.libelle = libelle;
             this.credit_debit = credit_debit;
-            this.lesTransactions = lesTransactions;
+            this.lesTransactions = new List<Transaction>();
         }
 
         // ---------------------------------------------------------------------------------------- //

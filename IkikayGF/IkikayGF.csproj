@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,14 +61,39 @@
     <Compile Include="Classes\Categorie.cs" />
     <Compile Include="Classes\Mouvement.cs" />
     <Compile Include="Classes\Transaction.cs" />
-    <Compile Include="Forms\MenuPrincipal.cs">
+    <Compile Include="Dao\Dao.cs" />
+    <Compile Include="Dao\DaoCategorie.cs" />
+    <Compile Include="Dao\DaoMouvement.cs" />
+    <Compile Include="Dao\DaoTransaction.cs" />
+    <Compile Include="Forms\AddMouvement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <Compile Include="Forms\AddMouvement.Designer.cs">
+      <DependentUpon>AddMouvement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModifyMouvement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModifyMouvement.Designer.cs">
+      <DependentUpon>ModifyMouvement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddMouvement.resx">
+      <DependentUpon>AddMouvement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModifyMouvement.resx">
+      <DependentUpon>ModifyMouvement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -91,8 +118,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dao\" />
-    <Folder Include="Ressources\" />
+    <Content Include="Ressources\appbar.arrow.left.png" />
+    <Content Include="Ressources\appbar.arrow.left_left.png" />
+    <Content Include="Ressources\appbar.cog.png" />
+    <Content Include="Ressources\appbar.magnify.png" />
+    <Content Include="Ressources\tab_afficher.png" />
+    <Content Include="Ressources\tab_modifier.png" />
+    <Content Include="Ressources\tab_supprimer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

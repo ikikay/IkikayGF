@@ -20,7 +20,7 @@ namespace IkikayGF
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MenuPrincipal FormMain = new MenuPrincipal();
+            Dashboard FormMain = new Dashboard();
             FormMain.Show();
 
             Application.Run();

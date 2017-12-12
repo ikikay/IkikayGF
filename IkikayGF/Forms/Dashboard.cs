@@ -29,8 +29,9 @@ namespace IkikayGF.Forms
         }
 
         // --------------------------------------------------------------------
-        // Bouttons et Cliques :
+        // Boutons et Cliques :
         // --------------------------------------------------------------------
+        //// * * * MOUVEMENT * * *
         private void mButtonAddMouvement_Click(object sender, EventArgs e)
         {
             AddMouvement formAddMouvement = new AddMouvement();
@@ -38,32 +39,18 @@ namespace IkikayGF.Forms
             this.Close();
         }
 
-        // --------------------------------------------------------------------
-        // Fonctions de refresh :
-        // --------------------------------------------------------------------
-        private void refreshGrid()
-        {
-            //Chargement de la liste des mouvements
-            mGridMouvements.RowTemplate.MinimumHeight = 35;
-            mGridMouvements.AutoGenerateColumns = false;
-            // Fait le lien entre la colonne et le noms des colonnes du DataTable pour s'auto remplir
-            mGridMouvements.Columns[0].DataPropertyName = "id"; //Attention Colonne Hide
-            mGridMouvements.Columns[1].DataPropertyName = "libelle";
-            mGridMouvements.DataSource = DaoMouvement.dtReadAll();
-        }
-
         private void mGridMouvements_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Si clique sur la column Modifier (Modifier) et Pas sur le header
-            if (e.ColumnIndex == mGridMouvements.Columns["Modifier"].Index && e.RowIndex >= 0)
+            // Si clique sur la column Modifier et Pas sur le header
+            if (e.ColumnIndex == mGridMouvements.Columns["MouvementModifier"].Index && e.RowIndex >= 0)
             {
                 ModifyMouvement formModifyMouvement = new ModifyMouvement(DaoMouvement.readOne(mGridMouvements.Rows[e.RowIndex].Cells[0].Value.ToString()));
                 formModifyMouvement.Show();
                 this.Close();
             }
-            else if (e.ColumnIndex == mGridMouvements.Columns["Supprimer"].Index && e.RowIndex >= 0)
+            else if (e.ColumnIndex == mGridMouvements.Columns["MouvementSupprimer"].Index && e.RowIndex >= 0)
             {
-                DialogResult result = MetroMessageBox.Show(this, "Voulez vous vraiment supprimer le contrat ?", "Confirmer la suppréssion", MessageBoxButtons.YesNo);
+                DialogResult result = MetroMessageBox.Show(this, "Voulez vous vraiment supprimer le mouvement ?", "Confirmer la suppréssion", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
@@ -79,6 +66,32 @@ namespace IkikayGF.Forms
                     MessageBox.Show("Error");
                 }
             }
+        }
+
+        // * * * CATEGORIE * * *
+
+        // --------------------------------------------------------------------
+        // Fonctions de refresh :
+        // --------------------------------------------------------------------
+        private void refreshGrid()
+        {
+            // * * * MOUVEMENT * * *
+            //Chargement de la liste des mouvements
+            mGridMouvements.RowTemplate.MinimumHeight = 35;
+            mGridMouvements.AutoGenerateColumns = false;
+            // Fait le lien entre la colonne et le noms des colonnes du DataTable pour s'auto remplir
+            mGridMouvements.Columns["MouvementId"].DataPropertyName = "id"; //Attention Colonne Hide
+            mGridMouvements.Columns["MouvementLibelle"].DataPropertyName = "libelle";
+            mGridMouvements.DataSource = DaoMouvement.dtReadAll();
+
+            // * * * CATEGORIE * * *
+            //Chargement de la liste des catégories
+            mGridCategorie.RowTemplate.MinimumHeight = 35;
+            mGridCategorie.AutoGenerateColumns = false;
+            // Fait le lien entre la colonne et le noms des colonnes du DataTable pour s'auto remplir
+            mGridCategorie.Columns["CategorieId"].DataPropertyName = "id"; //Attention Colonne Hide
+            mGridCategorie.Columns["CategorieLibelle"].DataPropertyName = "libelle";
+            mGridCategorie.DataSource = DaoCategorie.dtReadAll();
         }
     }
 }

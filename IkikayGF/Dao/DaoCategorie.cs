@@ -9,6 +9,7 @@ using MySql.Data.MySqlClient;
 
 // Classes du projets
 using IkikayGF.Classes;
+using System.Data;
 
 namespace IkikayGF.Dao
 {
@@ -40,6 +41,33 @@ namespace IkikayGF.Dao
                 Console.WriteLine("Error: {0}", ex.ToString());
 
             }
+        }
+
+        public static DataTable dtReadAll()
+        {
+            DataTable dtCategorie = new DataTable();
+
+            try
+            {
+                open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "SELECT * FROM categorie";
+
+                MySqlDataReader res = cmd.ExecuteReader();
+
+                dtCategorie.Load(res);
+
+                close();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: {0}", ex.ToString());
+
+                return dtCategorie;
+            }
+
+            return dtCategorie;
         }
 
         public static Boolean update(Categorie uneCategorie, String nouveauLibelle)

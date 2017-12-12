@@ -65,6 +65,12 @@
     <Compile Include="Dao\DaoCategorie.cs" />
     <Compile Include="Dao\DaoMouvement.cs" />
     <Compile Include="Dao\DaoTransaction.cs" />
+    <Compile Include="Forms\AddCategorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCategorie.Designer.cs">
+      <DependentUpon>AddCategorie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddMouvement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddCategorie.resx">
+      <DependentUpon>AddCategorie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMouvement.resx">
       <DependentUpon>AddMouvement.cs</DependentUpon>
     </EmbeddedResource>

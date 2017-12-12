@@ -34,7 +34,7 @@ namespace IkikayGF.Forms
         }
 
         // --------------------------------------------------------------------
-        // Bouttons et Cliques :
+        // Boutons et Cliques :
         // --------------------------------------------------------------------
         private void mLinkBack_Click(object sender, EventArgs e)
         {

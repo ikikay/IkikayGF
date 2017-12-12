@@ -16,15 +16,15 @@ using MetroFramework;
 
 namespace IkikayGF.Forms
 {
-    public partial class AddMouvement : MetroFramework.Forms.MetroForm
+    public partial class AddCategorie : MetroFramework.Forms.MetroForm
     {
         List<string> lsError = new List<string>();
 
-        public AddMouvement()
+        public AddCategorie()
         {
             InitializeComponent();
 
-            this.StyleManager = mSMAddMouvement;
+            this.StyleManager = mSMAddCategorie;
             this.StyleManager.Style = (MetroFramework.MetroColorStyle)Settings.Default.Style;
         }
 
@@ -38,16 +38,15 @@ namespace IkikayGF.Forms
             this.Close();
         }
 
-        private void mButtonAddMouvement_Click(object sender, EventArgs e)
+        private void mButtonAddCategorie_Click(object sender, EventArgs e)
         {
             {
                 CheckErrorNom();
-                bool creditDebit = CheckCreditDebit();
 
 
                 if (lsError.Count == 0)
                 {
-                    DaoMouvement.create(new Mouvement(mTxBMouvementLibelle.Text, creditDebit));
+                    DaoCategorie.create(new Categorie(mTxBCategorieLibelle.Text));
 
                     Dashboard MainForm = new Dashboard();
                     MainForm.Show();
@@ -68,33 +67,13 @@ namespace IkikayGF.Forms
         }
 
         // --------------------------------------------------------------------
-        // Fonctions de vérification des champs avant l'ajout du mouvement :
+        // Fonctions de vérification des champs avant l'ajout d'une catégorie :
         // --------------------------------------------------------------------
         private void CheckErrorNom()
         {
-            if (mTxBMouvementLibelle.Text == "")
+            if (mTxBCategorieLibelle.Text == "")
             {
                 lsError.Add("- Champ \"nom\" vide");
-            }
-        }
-
-        // --------------------------------------------------------------------
-        // Fonctions privé :
-        // --------------------------------------------------------------------
-        private bool CheckCreditDebit()
-        {
-            if (mRBDebit.Checked == true)
-            {
-                return true;
-            }
-            else if (mRBCredit.Checked == true)
-            {
-                return false;
-            }
-            else
-            {
-                lsError.Add("- Boutton \"Crédit\"  ou \"Débit\" non coché");
-                return true;
             }
         }
     }
